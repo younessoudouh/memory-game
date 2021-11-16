@@ -1,0 +1,42 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;1,100;1,200;1,300&family=Red+Hat+Text:wght@700&display=swap");
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #e0cdd7;
+  font-family: 'Poppins', sans-serif;
+}
+
+body .main-container {
+  padding: 20px;
+  height: 100%;
+}
+
+body .main-container header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+body .main-container header .btn {
+  padding: 8px 10px;
+  border: 0;
+  outline: none;
+  border-radius: 15px;
+  font-size: 16px;
+  font-family: inherit;
+  cursor: pointer;
+  color: #2e7e99;
+  background-color: #d4ebf2;
+  font-weight: 600;
+}
+/*# sourceMappingURL=game.css.map */
