@@ -42,9 +42,9 @@ let controleTime;
 function decreaseTime() {
     time--;
     timeElement.textContent = time;
-    if (time === -1) {
+    if (time === 0) {
         alert("time over!!");
-        clearInterval(controleTime)
+        clearInterval(controleTime);
     }
 }
 
@@ -59,6 +59,7 @@ function checkWin() {
 }
 
 restartBtn.addEventListener("click", () => {
+    clearInterval(controleTime);
     render(changeNumbersPlaces(numbersToMemory))
 })
 
