@@ -29,6 +29,81 @@ body {
                 color: darken($secondary-color, 40%);
                 background-color: lighten($secondary-color, 10%);
                 font-weight: 600;
+                transition: all .5s;
+                &:hover {
+                    background-color: $base-color;
+                    color: $main-color;
+                }
+            }
+        }
+        .content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 0;
+            .game-container {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 10px;
+                .rotate {
+                    transform: rotateY(180deg);
+                }
+                .match {
+                    background-color: #0d4253;
+                }
+                .number-container {
+                    height: 90px;
+                    width: 90px;
+                    perspective: 800px;
+                    position: relative;
+                    transform-style: preserve-3d;
+                    transition: 1s ease-out;
+                    border-radius: 50%;
+                    cursor: pointer;
+                    .face {
+                        width: 100%;
+                        height: 100%;
+                        position: absolute;
+                        border: 1px solid $base-color;
+                        border-radius: 50%;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        transform: rotateY(180deg);
+                        pointer-events: none;
+                    }
+                    .back {
+                        width: 100%;
+                        height: 100%;
+                        position: absolute;
+                        border-radius: 50%;
+                        background-color: $base-color;
+                        backface-visibility: hidden;
+                        pointer-events: none;
+                    }
+                }
+            }
+        }
+        footer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            div {
+                padding: 10px 0;
+                width: 150px;
+                background-color: darken(#fff, 30%);
+                border-radius: 5px;
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                span {
+                    color: darken($secondary-color, 40%);
+                    opacity: .7;
+                }
+                strong {
+                    color: darken($secondary-color, 60%);
+                }
             }
         }
     }
