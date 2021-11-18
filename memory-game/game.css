@@ -1,161 +1,226 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;1,100;1,200;1,300&family=Red+Hat+Text:wght@700&display=swap");
 * {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-  background-color: #e0cdd7;
-  font-family: 'Poppins', sans-serif;
+    background-color: #e0cdd7;
+    font-family: 'Poppins', sans-serif;
 }
 
 body .main-container {
-  padding: 20px;
-  height: 100%;
+    padding: 20px;
+    height: 100%;
 }
 
 body .main-container header {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
 }
 
 body .main-container header .btn {
-  padding: 8px 10px;
-  border: 0;
-  outline: none;
-  border-radius: 15px;
-  font-size: 16px;
-  font-family: inherit;
-  cursor: pointer;
-  color: #2e7e99;
-  background-color: #d4ebf2;
-  font-weight: 600;
-  -webkit-transition: all .5s;
-  transition: all .5s;
+    padding: 8px 10px;
+    border: 0;
+    outline: none;
+    border-radius: 15px;
+    font-size: 16px;
+    font-family: inherit;
+    cursor: pointer;
+    color: #2e7e99;
+    background-color: #d4ebf2;
+    font-weight: 600;
+    -webkit-transition: all .5s;
+    transition: all .5s;
 }
 
 body .main-container header .btn:hover {
-  background-color: #c6538c;
-  color: #e0cdd7;
+    background-color: #c6538c;
+    color: #e0cdd7;
 }
 
 body .main-container .content {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  padding: 40px 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    padding: 40px 0;
 }
 
 body .main-container .content .game-container {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: (1fr)[4];
-      grid-template-columns: repeat(4, 1fr);
-  gap: 10px;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
 }
 
 body .main-container .content .game-container .rotate {
-  -webkit-transform: rotateY(180deg);
-          transform: rotateY(180deg);
+    -webkit-transform: rotateY(180deg);
+    transform: rotateY(180deg);
 }
 
 body .main-container .content .game-container .match {
-  background-color: #0d4253;
+    background-color: #0d4253;
+    -webkit-animation: matchNumbers 1s ease-in-out;
+    animation: matchNumbers 1s ease-in-out;
+}
+
+@-webkit-keyframes matchNumbers {
+    50% {
+        -webkit-transform: scale(1.2) rotateY(180deg);
+        transform: scale(1.2) rotateY(180deg);
+    }
+    100% {
+        -webkit-transform: scale(1) rotateY(180deg);
+        transform: scale(1) rotateY(180deg);
+    }
+}
+
+@keyframes matchNumbers {
+    50% {
+        -webkit-transform: scale(1.2) rotateY(180deg);
+        transform: scale(1.2) rotateY(180deg);
+    }
+    100% {
+        -webkit-transform: scale(1) rotateY(180deg);
+        transform: scale(1) rotateY(180deg);
+    }
 }
 
 body .main-container .content .game-container .number-container {
-  height: 90px;
-  width: 90px;
-  -webkit-perspective: 800px;
-          perspective: 800px;
-  position: relative;
-  -webkit-transform-style: preserve-3d;
-          transform-style: preserve-3d;
-  -webkit-transition: 1s ease-out;
-  transition: 1s ease-out;
-  border-radius: 50%;
-  cursor: pointer;
+    height: 90px;
+    width: 90px;
+    -webkit-perspective: 800px;
+    perspective: 800px;
+    position: relative;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-transition: 1s ease-out;
+    transition: 1s ease-out;
+    border-radius: 50%;
+    cursor: pointer;
 }
 
 body .main-container .content .game-container .number-container .face {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  border: 1px solid #c6538c;
-  border-radius: 50%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-transform: rotateY(180deg);
-          transform: rotateY(180deg);
-  pointer-events: none;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    border: 1px solid #c6538c;
+    border-radius: 50%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+    pointer-events: none;
+    user-select: none;
 }
 
 body .main-container .content .game-container .number-container .back {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  border-radius: 50%;
-  background-color: #c6538c;
-  -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
-  pointer-events: none;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    border-radius: 50%;
+    background-color: #c6538c;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    pointer-events: none;
 }
 
 body .main-container footer {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  gap: 30px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    gap: 30px;
 }
 
 body .main-container footer div {
-  padding: 10px 0;
-  width: 150px;
-  background-color: #b3b3b3;
-  border-radius: 5px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+    padding: 10px 0;
+    width: 150px;
+    background-color: #b3b3b3;
+    border-radius: 5px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
 }
 
 body .main-container footer div span {
-  color: #2e7e99;
-  opacity: .7;
+    color: #2e7e99;
+    opacity: .7;
 }
 
 body .main-container footer div strong {
-  color: #173e4a;
+    color: #173e4a;
 }
+
+.start {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0);
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    z-index: 50;
+    top: 0;
+    left: 0;
+    font-size: 30px;
+    font-weight: 600;
+    color: black;
+}
+
+.start-btn {
+    padding: 10px 30px;
+    border-radius: 15px;
+    background: rgb(75, 143, 40);
+    background: linear-gradient(90deg, rgba(75, 143, 40, 1) 35%, rgba(28, 139, 233, 1) 100%);
+    color: black;
+    cursor: pointer;
+    border: 0;
+    outline: none;
+    font-size: 30px;
+    font-family: inherit;
+    cursor: pointer;
+    font-weight: 700;
+    -webkit-transition: all .5s;
+    transition: all .5s;
+}
+
+.start-btn:hover {
+    background: linear-gradient(90deg, rgba(28, 139, 233, 1) 35%, rgba(75, 143, 40, 1) 100%);
+    transform: scale(1.3);
+}
+
+
 /*# sourceMappingURL=game.css.map */

@@ -50,6 +50,15 @@ body {
                 }
                 .match {
                     background-color: #0d4253;
+                    animation: matchNumbers 1s ease-in-out;
+                }
+                @keyframes matchNumbers {
+                    50% {
+                        transform: scale(1.2) rotateY(180deg);
+                    }
+                    100% {
+                        transform: scale(1) rotateY(180deg);
+                    }
                 }
                 .number-container {
                     height: 90px;

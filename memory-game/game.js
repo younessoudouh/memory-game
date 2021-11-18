@@ -3,6 +3,8 @@ let timeElement = document.getElementById("time");
 let restartBtn = document.getElementById("restart");
 let newGameBtn = document.getElementById("new-game");
 let movesElement = document.getElementById("moves");
+let startGameBtn = document.getElementById("start");
+let startElement = document.getElementById("start-element");
 let moves = 0;
 let time;
 let numbersToMemory = [
@@ -24,29 +26,35 @@ let numbersToMemory = [
     { val: 8 },
 ];
 
-numbersToMemory = changeNumbersPlaces(numbersToMemory);
-render(numbersToMemory);
-let controleTime = setInterval(changeTime, 1000);
+newGameBtn.addEventListener("click", () => {
+    clearInterval(controleTime);
+    render(changeNumbersPlaces(numbersToMemory));
+})
 
-function changeTime() {
+startGameBtn.addEventListener("click", () => {
+    startElement.style.display = "none";
+    render(changeNumbersPlaces(numbersToMemory));
+
+})
+
+let controleTime;
+
+function decreaseTime() {
     time--;
     timeElement.textContent = time;
-    checkWin()
     if (time === -1) {
-        alert("time over!!")
-        render(changeNumbersPlaces(numbersToMemory));
-
+        alert("time over!!");
+        clearInterval(controleTime)
     }
 }
 
 function checkWin() {
-    controleTime = clearInterval(changeTime);
     let isWin = [...document.querySelectorAll(".number-container")].every(div => div.classList.contains("match") === true);
     if (isWin) {
         alert(`WoW congratilation you did it 
         time : ${time} 
         moves : ${moves}`);
-        render(changeNumbersPlaces(numbersToMemory))
+        clearInterval(controleTime);
     }
 }
 
@@ -77,6 +85,7 @@ function render(numbers) {
         let div = creatElement(number)
         gameElement.appendChild(div)
     });
+    controleTime = setInterval(decreaseTime, 1000);
 }
 
 function rotateElement(e) {
@@ -90,9 +99,12 @@ function checkNumbers() {
     if (rotatedElements.length === 2) {
         if (rotatedElements[0].getAttribute('data-val') === rotatedElements[1].getAttribute('data-val')) {
             rotatedElements.forEach(element => {
-                element.classList.add("match");
-                element.classList.remove("rotated");
-                element.style.pointerEvents = "none";
+                setTimeout(() => {
+                    element.classList.add("match");
+                    element.classList.remove("rotated");
+                    element.style.pointerEvents = "none";
+                    setTimeout(checkWin, 1000)
+                }, 1000)
             })
         } else {
             setTimeout(() => {
